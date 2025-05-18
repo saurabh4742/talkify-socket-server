@@ -9,7 +9,7 @@ let count = 0;
 let httpServer = createServer();
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.CORS_ORIGIN_URL,
+    origin: "https://talkify-io.vercel.app",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true,
