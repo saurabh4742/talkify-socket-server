@@ -10,7 +10,7 @@ let count = 0;
 let httpServer = createServer();
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://talkify-io.vercel.app",
+    origin: process.env.CORS_ORIGIN_URL,
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true,
@@ -201,6 +201,6 @@ socket.on("join-room", (userId) => {
   });
 });
 
-exports.expressServer = httpServer.listen(4000, () =>
-  console.log(`Listening ${4000} SocketIO...`)
+exports.expressServer = httpServer.listen(process.env.PORT, () =>
+  console.log(`Listening ${process.env.PORT} SocketIO...`)
 );
