@@ -5,7 +5,6 @@ const { Server } = require("socket.io");
 const dotenv = require("dotenv");
 const { v4: uuidv4 } = require("uuid");
 dotenv.config();
-const PORT=process.env.PORT || 3001
 let count = 0;
 let httpServer = createServer();
 const io = new Server(httpServer, {
@@ -201,6 +200,6 @@ socket.on("join-room", (userId) => {
   });
 });
 
-exports.expressServer = httpServer.listen(PORT, () =>
-  console.log(`Listening ${PORT} SocketIO...`)
+exports.expressServer = httpServer.listen(process.env.PORT, () =>
+  console.log(`Listening ${process.env.PORT} SocketIO...`)
 );
