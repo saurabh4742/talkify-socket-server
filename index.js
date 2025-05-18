@@ -1,2 +1,2 @@
-const socket = require("./socket");
+import socket from "./socket";
 // const server=require("./server")
